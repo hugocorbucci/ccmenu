@@ -21,7 +21,7 @@
 		03051ADD18BAAA820090FF45 /* CCMReorderableArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03051ADB18BAAA820090FF45 /* CCMReorderableArrayController.m */; };
 		0306185013DD554F003B065E /* CCMBuildTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306184F13DD554F003B065E /* CCMBuildTimer.m */; };
 		0328D383135C191500D35055 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0328D37F135C191500D35055 /* Sparkle.framework */; };
-		0328D38A135C1A3A00D35055 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0328D37F135C191500D35055 /* Sparkle.framework */; };
+		0328D38A135C1A3A00D35055 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0328D37F135C191500D35055 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		032E6ECB140411A100DBA2E0 /* CCMRelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 032E6ECA140411A100DBA2E0 /* CCMRelativeDateTransformer.m */; };
 		032E6ECF140416C900DBA2E0 /* CCMTimeIntervalTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 032E6ECE140416C900DBA2E0 /* CCMTimeIntervalTransformer.m */; };
 		0336510718BD4162000291C8 /* pref-menu.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0336510618BD4162000291C8 /* pref-menu.tiff */; };
@@ -761,7 +761,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0510;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = ThoughtWorks;
 			};
 			buildConfigurationList = 038ABE13134F11080053F0D1 /* Build configuration list for PBXProject "CCMenu" */;
@@ -1149,7 +1149,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_IDENTITY = "Developer ID Application: ThoughtWorks";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Hugo Corbucci (GU2ULE5GZX)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = "";
