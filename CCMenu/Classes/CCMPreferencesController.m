@@ -13,7 +13,7 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 
 
 @implementation CCMPreferencesController
-
+static int const PrivateKVOContext;
 - (void)showWindow:(id)sender
 {
 	if(preferencesWindow == nil)
@@ -26,6 +26,8 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 		[preferencesWindow setToolbar:[self createToolbarWithName:@"Preferences"]];
 		[[preferencesWindow toolbar] setSelectedItemIdentifier:@"Projects"];
 		[self switchPreferencesPane:self];
+        [defaultsManager addObserver:self forKeyPath:CCMDefaultsLaunchAtLoginKey options:(NSKeyValueObservingOptionInitial+NSKeyValueObservingOptionNew) context: ((void*)&PrivateKVOContext)];
+
 	}
     [soundNamesViewController setContent:[self availableSounds]];
 	[NSApp activateIgnoringOtherApps:YES];
@@ -108,6 +110,20 @@ NSString *CCMPreferencesChangedNotification = @"CCMPreferencesChangedNotificatio
 - (void)soundSelected:(id)sender
 {
     [[NSSound soundNamed:[sender title]] play];
+}
+
+- (IBAction)toggleLaunchAtLogin:(id)sender {
+    NSButton *checkbox = (NSButton*) sender;
+    [defaultsManager shouldLaunchAtLogin: ((checkbox.state ^ 1) == 0)];
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (context == &PrivateKVOContext) {
+        if (keyPath == CCMDefaultsLaunchAtLoginKey) {
+            launchAtLoginButton.state = defaultsManager.launchAtLogin ? 1 : 0;
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 #ifndef CCM_MAS_BUILD

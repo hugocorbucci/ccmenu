@@ -7,6 +7,7 @@ NSString *CCMDefaultsProjectEntryNameKey = @"projectName";
 NSString *CCMDefaultsProjectEntryServerUrlKey = @"serverUrl";
 NSString *CCMDefaultsPollIntervalKey = @"PollInterval";
 NSString *CCMDefaultsServerUrlHistoryKey = @"ServerHistory";
+NSString *CCMDefaultsLaunchAtLoginKey = @"launchAtLogin";
 
 
 @implementation CCMUserDefaultsManager
@@ -14,6 +15,7 @@ NSString *CCMDefaultsServerUrlHistoryKey = @"ServerHistory";
 - (void)awakeFromNib
 {
 	userDefaults = [NSUserDefaults standardUserDefaults];
+    self.launchAtLogin = [userDefaults boolForKey: CCMDefaultsLaunchAtLoginKey];
     [self convertDefaultsIfNecessary];
 }
 
@@ -103,6 +105,8 @@ NSString *CCMDefaultsServerUrlHistoryKey = @"ServerHistory";
         [userDefaults setObject:[NSUnarchiver unarchiveObjectWithData:data] forKey:CCMDefaultsProjectListKey];
     }
 }
-
-
+- (void)shouldLaunchAtLogin:(BOOL)shouldBeLaunched {
+    [userDefaults setBool: shouldBeLaunched forKey: CCMDefaultsLaunchAtLoginKey];
+    self.launchAtLogin = shouldBeLaunched;
+}
 @end

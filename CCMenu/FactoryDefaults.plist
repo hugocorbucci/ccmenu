@@ -8,5 +8,7 @@
 	<string>5</string>
 	<key>SUScheduledCheckInterval</key>
 	<integer>604800</integer>
+	<key>launchAtLogin</key>
+	<false/>
 </dict>
 </plist>

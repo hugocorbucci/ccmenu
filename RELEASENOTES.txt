@@ -1,5 +1,9 @@
 CCMenu Release Notes
 
+CCMenu 1.7.1
+
+* Adding preference to launch at login
+
 CCMenu 1.7
 
 * Nicer display of project list in preferences. 

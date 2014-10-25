@@ -8,7 +8,7 @@ include REXML
 class ReleaseManager
 
     def initialize
-        @proj = Project.new("CCMenu", "1.7", "https://svn.code.sf.net/p/ccmenu/code/trunk")
+        @proj = Project.new("CCMenu", "1.7.1", "file:////#{`pwd`.strip}")
         @env = Environment.new()
         @worker = CompositeWorker.new([Logger.new(), Executer.new()])
     end
@@ -19,7 +19,7 @@ class ReleaseManager
       createSourcePackage
       buildModules
       createBinaryPackage
-      createAppcast
+      # createAppcast
       openPackageDir
     end
     
@@ -31,7 +31,7 @@ class ReleaseManager
     
     def checkOutSource
         @worker.chdir(@env.sourcedir)
-        @worker.run("svn export #{@proj.svnroot} #{@proj.basename}")
+        @worker.run("git clone #{@proj.svnroot} #{@proj.basename}")
     end
 
     def createSourcePackage

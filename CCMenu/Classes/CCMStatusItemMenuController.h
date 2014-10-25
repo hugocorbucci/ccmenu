@@ -10,6 +10,7 @@
     IBOutlet CCMServerMonitor       *serverMonitor;
 	IBOutlet CCMImageFactory        *imageFactory;
 	IBOutlet NSMenu                 *statusMenu;
+    IBOutlet NSMenuItem             *launchAtLoginItem;
 
 	NSStatusItem	*statusItem;
     NSTimer         *timer;
@@ -20,5 +21,5 @@
 
 - (void)displayProjects:(id)sender;
 - (IBAction)openProject:(id)sender;
-
+- (IBAction)toggleLaunchAtLogin:(id)sender;
 @end

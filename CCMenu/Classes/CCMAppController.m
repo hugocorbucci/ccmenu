@@ -7,7 +7,6 @@
 #import "CCMIsOneValueTransformer.h"
 #import "CCMProjectDefaultValueTransformer.h"
 
-
 @implementation CCMAppController
 
 - (void)setupRequestCache

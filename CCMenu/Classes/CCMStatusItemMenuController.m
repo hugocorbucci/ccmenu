@@ -6,6 +6,7 @@
 #import "CCMImageFactory.h"
 #import "CCMServerMonitor.h"
 #import "CCMProject.h"
+#import "CCMLaunchAtLoginController.h"
 
 @interface NSStatusItem(MyTitleFormatting)
 
@@ -14,6 +15,8 @@
 @end
 
 @implementation NSStatusItem(MyTitleFormatting)
+
+static int const PrivateKVOContext;
 
 - (void)setFormattedTitle:(NSString *)aTitle
 {
@@ -26,7 +29,9 @@
 @end
 
 
-@implementation CCMStatusItemMenuController
+@implementation CCMStatusItemMenuController {
+    CCMLaunchAtLoginController *loginLaunchController;
+}
 
 - (void)awakeFromNib
 {
@@ -35,6 +40,10 @@
 	[statusItem setHighlightMode:YES];
 	[statusItem setMenu:statusMenu];
     
+    loginLaunchController = [[CCMLaunchAtLoginController alloc] initWithDefaultsManager: defaultsManager];
+
+    [defaultsManager addObserver:self forKeyPath:CCMDefaultsLaunchAtLoginKey options:(NSKeyValueObservingOptionInitial+NSKeyValueObservingOptionNew) context: ((void*)&PrivateKVOContext)];
+
     [[NSNotificationCenter defaultCenter] 
      addObserver:self selector:@selector(displayProjects:) name:CCMProjectStatusUpdateNotification object:nil];
 }
@@ -207,4 +216,17 @@
 	}
 }
 
+- (IBAction)toggleLaunchAtLogin:(id)sender {
+    NSMenuItem *launchItem = (NSMenuItem*) sender;
+    [defaultsManager shouldLaunchAtLogin: ((launchItem.state ^ 1) == 1)];
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (context == &PrivateKVOContext) {
+        if (keyPath == CCMDefaultsLaunchAtLoginKey) {
+            launchAtLoginItem.state = defaultsManager.launchAtLogin ? 1 : 0;
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
 @end

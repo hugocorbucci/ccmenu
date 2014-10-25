@@ -26,6 +26,7 @@
 	IBOutlet NSArrayController		*soundNamesViewController;
 
 	IBOutlet NSView					*advancedPrefsView;
+    IBOutlet NSButton               *launchAtLoginButton;
     
 }
 
@@ -40,14 +41,13 @@
 - (IBAction)soundSelected:(id)sender;
 - (NSArray *)availableSounds;
 
+- (IBAction)toggleLaunchAtLogin:(id)sender;
+
 #ifndef CCM_MAS_BUILD
 - (IBAction)openNotificationPreferences:(id)sender;
 - (IBAction)updateIntervalChanged:(id)sender;
 - (IBAction)checkForUpdateNow:(id)sender;
 #endif
-
-- (IBAction)preferencesChanged:(id)sender;
-
 
 @end
 

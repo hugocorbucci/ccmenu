@@ -154,6 +154,7 @@
 		2FA28EEE1E2F08289D958C3B /* CCMHistoryDataSourceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA2888750C52351CE35929B /* CCMHistoryDataSourceTest.m */; };
 		2FA28F4431D6C7178FFA5C84 /* NSAlert+CCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA282A416260DF796951CFD /* NSAlert+CCMAdditions.m */; };
 		2FA28F7C4769563BBEFD39BD /* CCMHistoryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28E7615CE832C25635C2D /* CCMHistoryDataSource.m */; };
+		CC25904B19FC09A700C7AFD6 /* CCMLaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC25904A19FC09A700C7AFD6 /* CCMLaunchAtLoginController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -330,6 +331,8 @@
 		2FA28DDF250DAF8DD83AE044 /* CCMHistoryDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMHistoryDataSource.h; sourceTree = "<group>"; };
 		2FA28E7615CE832C25635C2D /* CCMHistoryDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMHistoryDataSource.m; sourceTree = "<group>"; };
 		2FA28FE120BA229F01F0F4AE /* NSAlert+CCMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAlert+CCMAdditions.h"; sourceTree = "<group>"; };
+		CC25904919FC096F00C7AFD6 /* CCMLaunchAtLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMLaunchAtLoginController.h; sourceTree = "<group>"; };
+		CC25904A19FC09A700C7AFD6 /* CCMLaunchAtLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMLaunchAtLoginController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -486,6 +489,8 @@
 			children = (
 				03C08275134F97940039E3BD /* CCMAppController.h */,
 				03C08276134F97940039E3BD /* CCMAppController.m */,
+				CC25904919FC096F00C7AFD6 /* CCMLaunchAtLoginController.h */,
+				CC25904A19FC09A700C7AFD6 /* CCMLaunchAtLoginController.m */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -728,7 +733,7 @@
 			name = CCMenuTests;
 			productName = CCMenuTests;
 			productReference = 034BF7991757C9890025F9A0 /* CCMenuTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		038ABE18134F11080053F0D1 /* CCMenu */ = {
 			isa = PBXNativeTarget;
@@ -968,6 +973,7 @@
 				03E0821617061E3700E28E5A /* NSAppleEventDescriptor+EDAdditions.m in Sources */,
 				03E0821817061E3700E28E5A /* NSAppleScript+EDAdditions.m in Sources */,
 				034BF78F1757C4C30025F9A0 /* CCMSyncConnection.m in Sources */,
+				CC25904B19FC09A700C7AFD6 /* CCMLaunchAtLoginController.m in Sources */,
 				2FA28F7C4769563BBEFD39BD /* CCMHistoryDataSource.m in Sources */,
 				036FA724176236D900371BE9 /* CCMKeychainHelper.m in Sources */,
 				2FA28CB4322A4BE63D533ECF /* NSAlert+CCMAdditions.m in Sources */,

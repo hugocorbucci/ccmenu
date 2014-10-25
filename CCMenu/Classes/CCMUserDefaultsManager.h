@@ -12,6 +12,7 @@ enum {
 {
 	NSUserDefaults	*userDefaults;
 }
+@property BOOL launchAtLogin;
 
 - (NSInteger)pollInterval;
 - (BOOL)shouldShowTimerInMenu;
@@ -27,6 +28,8 @@ enum {
 
 - (void)convertDefaultsIfNecessary;
 
+- (void)shouldLaunchAtLogin:(BOOL)shouldBeLaunched;
+
 @end
 
 
@@ -37,3 +40,4 @@ extern NSString *CCMDefaultsProjectEntryNameKey;
 extern NSString *CCMDefaultsProjectEntryServerUrlKey;
 
 extern NSString *CCMDefaultsServerUrlHistoryKey;
+extern NSString *CCMDefaultsLaunchAtLoginKey;
